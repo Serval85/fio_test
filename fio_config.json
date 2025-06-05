@@ -1,0 +1,19 @@
+{
+    "ioengine": "libaio",
+    "direct": 1,
+    "buffered": 0,
+    "blocksize": "4k",
+    "iodepth": 64,
+    "runtime": 60,
+    "numjobs": 1,
+    "filename": "/tmp/testfile",
+    "file_size": "1G",
+    "base_results_dir": "./results",
+    "latency_threshold": 1.0,
+    "patterns": [
+        ["100read_0write", {"rw": "randread", "rwmixread": 100}],
+        ["50read_50write", {"rw": "randrw", "rwmixread": 50}],
+        ["70read_30write", {"rw": "randrw", "rwmixread": 70}],
+        ["0read_100write", {"rw": "randwrite", "rwmixread": 0}]
+    ]
+}
