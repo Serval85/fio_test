@@ -44,6 +44,11 @@ class RWTest:
             ]
         }
 
+        # Проверяем наличие файла конфигурации по умолчанию
+        default_config_file = "fio_config.json"
+        if config_file is None and os.path.exists(default_config_file):
+            config_file = default_config_file
+                
         # Загружаем конфиг из файла, если он указан и существует
         file_config = {}
         if config_file and os.path.exists(config_file):
